@@ -1,69 +1,150 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+:root{
+    --primario: #505393;
+    --secundario: #a14dab;
+    --cafe:#f3a46b;
+    --rosado: #f76570;
+    --negro: #141a18;
+    --blanco:#fff;
+    --fondo:#F5F8FA;
+    --verde: #21b2a6;
+    --rojo: #ed4933;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    font-size: 1.6rem;
+    font-family: "Lato", sans-serif;
+    z-index: 5;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.sombra{    
+    box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
+    -webkit-box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
+    -moz-box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
+    border-radius: 1.2rem;
+}
+
+.bg{
+    background-image: url(./img/bottom.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    position: relative;
+}
+
+.fondo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.contenendor{
+    width: 90%;
+    max-width: 80rem;
+    margin: auto auto;   
+}
+
+.centrar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor__presupuesto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(220, 248, 250, .7);
+    padding: 1rem 2rem;
+    width: 90%;
+    max-width: 90%;
+}
+
+.contenedor__presupuesto h1{
+    color: var(--primario);
+    font-size: 3.6rem;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.contenedor__presupuesto p {
+    color: var(--negro);
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 0 10rem;
+    letter-spacing: .1rem;
+    font-weight: 400;
+}
+
+.formulario {
+    width: 95%;
+    margin: 0 auto;
+    padding: 5rem 0;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .formulario {
+        width: 80%;
+        padding: 2rem 12rem;
+        width: 60rem;
+    }
+}
+.formulario .campo {
+    display: grid;
+    margin-bottom: 2rem;
+    margin: 0 auto;
+}
+
+.formulario label {
+    color: var(--primario);
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.formulario input[type="number"]{
+    border: none;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.8rem;
+    border-radius: .5rem;
+}
+
+.formulario input[type="submit"]{
+    display: block;
+    padding: 1rem 5rem;
+    width: 100%;
+    background-color: var(--verde);
+    border: none;
+    text-align: center;
+    text-transform: uppercase;   
+    margin: 1rem auto;    
+    border-radius: .5rem;
+    flex: 1;
+    font-size: 1.6rem;
+    color: var(--blanco);
+    font-weight: 700;
+    transition: background-color 300ms ease;
+}
+.formulario input[type="submit"]:hover{
+    background-color: #198a80;
+    cursor: pointer;
 }
