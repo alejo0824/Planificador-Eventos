@@ -120,7 +120,8 @@ html {
     margin-bottom: 2rem;
 }
 
-.formulario input[type="number"]{
+.formulario input[type="number"],
+.formulario input[type="text"]{
     border: none;
     padding: 1rem 0;
     text-align: center;
@@ -147,4 +148,8 @@ html {
 .formulario input[type="submit"]:hover{
     background-color: #198a80;
     cursor: pointer;
+}
+
+.swal2-title{
+    font-size: 2rem;
 }

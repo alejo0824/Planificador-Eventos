@@ -1,31 +1,52 @@
 import React from 'react'
+import Swal from 'sweetalert2';
 
-const NuevoPresupuesto = () => {
-  return (
-    <div className="fondo centrar">    
-        <div className='contenedor__presupuesto sombra'>
-            <h1>Gastos de boda</h1>
-            <p>Añade un presupuesto para planificar tu boda,Podrás tener todos los gastos controlados. </p>
+const NuevoPresupuesto = ({presupuesto,setPresupuesto}) => {
 
-            <form className='formulario'>
-                <div className="campo">
-                    <label htmlFor="">Definir Presupuesto</label>
+    const handleClick = () => {      
+            Swal.fire({
+                icon: 'error',
+                title: 'Presupuesto Invalido',
+                showConfirmButton:false,
+                timer:1500
+            })
+      } 
 
-                    <input
-                        className='nuevo-presupuesto sombra'
-                        type="number"
-                        placeholder='Añade tu presupuesto'
-                        min={0}
-                    />
-                </div>
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        if(Number(presupuesto) < 0 || !Number(presupuesto)){
+            handleClick()
+        }
+        else {
+            console.log("Es un numero");
+        }
+    }
+    return (
+        <div className="fondo centrar">    
+            <div className='contenedor__presupuesto sombra'>
+                <h1>Gastos de boda</h1>
+                <p>Añade un presupuesto para planificar tu boda,Podrás tener todos los gastos controlados. </p>
+
+                <form className='formulario' onSubmit={handleSubmit}>
+                    <div className="campo">
+                        <label htmlFor="">Definir Presupuesto</label>
+
+                        <input
+                            className='nuevo-presupuesto sombra'
+                            type="text"
+                            placeholder='Añade tu presupuesto'
+                            value={presupuesto}
+                            onChange={(e) => setPresupuesto(e.target.value)}
+                        />
+                    </div>
+
+                        <input type="submit" value="Añadir" />
+
                 
-                    <input type="submit" value="Añadir" />
-
-               
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default NuevoPresupuesto

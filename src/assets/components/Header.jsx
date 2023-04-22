@@ -1,9 +1,12 @@
 import NuevoPresupuesto from "./NuevoPresupuesto"
 
-const Header = () => {
+const Header = ({presupuesto,setPresupuesto}) => {
   return (
     <div className="contenendor ">      
-      <NuevoPresupuesto/>
+      <NuevoPresupuesto
+        presupuesto = {presupuesto}
+        setPresupuesto = {setPresupuesto}
+      />
     </div>
   )
 }
