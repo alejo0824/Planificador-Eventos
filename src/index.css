@@ -12,7 +12,6 @@
 body {
     font-size: 1.6rem;
     font-family: "Lato", sans-serif;
-    z-index: 5;
 }
 
 html {
@@ -24,6 +23,9 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
+}
+h1{
+    margin: 0;
 }
 
 .sombra{    
@@ -48,13 +50,7 @@ html {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, .2);
-}
-
-.contenendor{
-    width: 90%;
-    max-width: 80rem;
-    margin: auto auto;   
+    background-color: rgba(0, 0, 0, .52);
 }
 
 .centrar{
@@ -80,6 +76,7 @@ html {
     font-size: 3.6rem;
     text-transform: capitalize;
     font-weight: 700;
+    margin-bottom: 2rem;
 }
 
 .contenedor__presupuesto p {
@@ -91,7 +88,7 @@ html {
     font-weight: 400;
 }
 
-.formulario {
+.formulario {    
     width: 95%;
     margin: 0 auto;
     padding: 5rem 0;
@@ -149,7 +146,16 @@ html {
     background-color: #198a80;
     cursor: pointer;
 }
-
+.swal2-popup{
+    width: 50rem;
+}
+.swal2-html-container{
+    font-size: 1.8rem;
+}
 .swal2-title{
-    font-size: 2rem;
+    font-size: 2.4rem;
+}
+
+.swal2-styled.swal2-confirm{
+    background-color: var(--verde);
 }
