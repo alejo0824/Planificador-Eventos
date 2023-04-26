@@ -28,6 +28,12 @@ h1{
     margin: 0;
 }
 
+.contenedor{
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
 .sombra{    
     box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
     -webkit-box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
@@ -52,6 +58,14 @@ h1{
     right: 0;
     background-color: rgba(0, 0, 0, .52);
 }
+.fondo_2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(245, 248, 250, .52);
+}
 
 .centrar{
     display: flex;
@@ -67,8 +81,7 @@ h1{
     align-items: center;
     background-color: rgba(220, 248, 250, .7);
     padding: 1rem 2rem;
-    width: 90%;
-    max-width: 90%;
+    
 }
 
 .contenedor__presupuesto h1{
@@ -102,6 +115,7 @@ h1{
         width: 60rem;
     }
 }
+
 .formulario .campo {
     display: grid;
     margin-bottom: 2rem;
@@ -142,10 +156,24 @@ h1{
     font-weight: 700;
     transition: background-color 300ms ease;
 }
+
 .formulario input[type="submit"]:hover{
     background-color: #198a80;
     cursor: pointer;
 }
+
+/* Formularuio2 */
+.formulario legend {
+    font-size: 3.6rem;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--blanco);
+    margin: 1.2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--verde);
+}
+
 .swal2-popup{
     width: 50rem;
 }
@@ -158,4 +186,173 @@ h1{
 
 .swal2-styled.swal2-confirm{
     background-color: var(--verde);
+}
+
+.fondo__controlPresupuesto{
+    background-image: url(./img/bottom.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    height: 80vh;
+}
+
+@media (min-width: 768px){
+    .fondo__controlPresupuesto{
+        height: 60vh;
+    }
+}
+
+.contenedor__controPresupuesto{    
+    background-color: #fffc;
+    transform: translateY(8rem);
+    padding: 3rem;
+}
+.contenedor__controPresupuesto h2{
+    margin: 1rem auto;
+    text-align: center;
+    color: var(--primario);
+    text-transform: capitalize;
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.nuevo__gasto{
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+}
+
+.nuevo__gasto img{
+    width: 5rem;
+}
+
+.nuevo__gasto:hover{
+    cursor: pointer;
+}
+
+.contenido__controlPresupuesto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4rem;
+    
+}
+
+@media (min-width: 768px){
+    .contenido__controlPresupuesto{
+        flex-direction: row;
+    }
+    .info__controlPresupuesto{
+        flex: 1;
+    }
+
+    .grafica__controlPresupuesto{
+        width: 50%;
+    }
+    
+}
+
+/* BORRAR Al agregar gráfica */
+.grafica__controlPresupuesto  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: gray;
+}
+
+.boton__controlPresupuesto{
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+    padding: 1.1rem 0 ;
+    margin: 1rem 0 ;
+    font-weight: 700;
+    border-radius: .5rem;
+    border: 1px solid #fff ;
+    background-color: var(--rojo);
+    color: #fff;
+    transition: background-color 300ms ease;
+}
+
+@media (min-width: 768px){
+    .boton__controlPresupuesto{
+        display: block;
+        width: auto;
+        padding: 1.1rem 8rem;
+    }
+}
+
+.boton__controlPresupuesto:hover{
+    background-color: #f06d5b;
+}
+
+.items__controPresupuesto{
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (min-width: 768px){
+    .items__controPresupuesto{
+        text-align: left;
+    }
+}
+
+.items__controPresupuesto span{
+    font-weight: 700;
+    font-size: 1.8rem;    
+}
+
+.modal{
+    position: absolute;
+    background-color: rgb(0 0 0 / 0.92);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.cerrar__modal{
+    position: absolute;
+    right: 9rem;
+    top: 3rem;
+    width: 3rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.modal .cerrar__modal img{
+    width: 185%;    
+}
+
+.modal .cerrar__modal:hover{
+    cursor: pointer;
+}
+
+.modal .formulario{
+    max-width: 80rem;
+    width: 60rem;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in;
+    opacity: 0;
+}
+
+
+body .modal {
+    overflow: hidden;
+}
+
+.modal .formulario.animar {
+    position: relative;
+    opacity: 1;
+}
+
+.modal .formulario.cerrar {
+    opacity: 0;
+}
+
+.modal label {
+    text-align: left;
 }
