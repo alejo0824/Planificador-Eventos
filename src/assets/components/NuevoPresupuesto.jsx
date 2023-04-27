@@ -39,7 +39,7 @@ const NuevoPresupuesto = ({presupuesto,setPresupuesto,setPresupuestoValido}) => 
                     <p>Añade un presupuesto para planificar tu boda,Podrás tener todos los gastos controlados. </p>
                     <form className='formulario' onSubmit={handleSubmit}>
                         <div className="campo">
-                            <label htmlFor="">Definir Presupuesto</label>
+                            <label className='nuevoPresupuesto' htmlFor="">Definir Presupuesto</label>
                             <input
                                 className='nuevo-presupuesto sombra'
                                 type="number"
