@@ -1,6 +1,6 @@
 import Header from './assets/components/Header'
 import {useState} from 'react'
-
+import {generarID} from './helpers'
 import iconoAgregar from './img/add.svg'
 import Modal from './assets/components/Modal';
 
@@ -12,10 +12,22 @@ function App() {
   const [modal,setModal] = useState(false)
   const[animarModal, setAnimarModal] = useState(false)
 
+  //Hook para Almecenar todos los gastos
+  const [almacenarGastos, setalmacenarGastos] = useState([]);
+
+  //Función cunado se oprime el "+" para crear un gasto
   const handleAgregarGasto = () => {
     setModal(true)
     setTimeout(() => {
       setAnimarModal(true)      
+    }, 500);
+  }
+
+  const almacenarGasto = (nuevoGasto) => {
+    nuevoGasto.id = generarID();
+    setalmacenarGastos([...almacenarGastos,nuevoGasto]);
+    setTimeout(() => {
+      setModal(false);
     }, 500);
   }
    
@@ -43,6 +55,7 @@ function App() {
         setModal={setModal}
         animarModal={animarModal}
         setAnimarModal={setAnimarModal}
+        almacenarGasto={almacenarGasto}
       />}  
       
     </>

@@ -1,35 +1,16 @@
 import React from 'react'
-import Swal from 'sweetalert2';
+import {alerta} from "../../helpers"
 
 const NuevoPresupuesto = ({presupuesto,setPresupuesto,setPresupuestoValido}) => {
-
-    const alertaError = () => {      
-
-        Swal.fire({
-            icon: 'error',
-            title: 'Algo salio mal ...',
-            text: 'El presupuesto que has elegido no es válido, pon un número mayor que 0',
-            timer: 2500           
-        })
-      } 
-
-      const alertaCorrecto = () => {
-        Swal.fire({
-            icon: 'success',
-            title: 'Presupuesto añadido correctamente',
-            showConfirmButton:false,
-            timer:1500
-        })
-      }
 
     const handleSubmit = (e)=>{
         e.preventDefault();
         if(Number(presupuesto) < 0 || !Number(presupuesto)){
-            alertaError()
+            alerta('error','Algo salio mal ...','El presupuesto que has elegido no es válido, pon un número mayor que 0')
             return;
         }
         setPresupuestoValido(true);
-        alertaCorrecto();
+        alerta('success','Presupuesto añadido correctamente',null)
     }
     return (
         <div className="bg">    
