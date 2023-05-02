@@ -23,10 +23,12 @@ const Modal = ({setModal,animarModal,setAnimarModal,almacenarGasto}) => {
             alerta('error','Falta algo...','Rellena todos los datos')
             return
         }
+
+        if(cantidad < 0){
+            alerta('error','Error...','La canidad no puede ser menor a 0')
+            return
+        }
         almacenarGasto({nombre,cantidad,categoria})
-        setTimeout(() => {
-            setAnimarModal(false)
-        }, 500);
     }
 
     return (

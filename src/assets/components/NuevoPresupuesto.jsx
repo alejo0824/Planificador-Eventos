@@ -29,7 +29,7 @@ const NuevoPresupuesto = ({presupuesto,setPresupuesto,setPresupuestoValido}) => 
                                 onChange={(e) => setPresupuesto(e.target.value)}
                             />
                         </div>
-                            <input type="submit" value="Añadir" />                
+                            <input className='subir' type="submit" value="Añadir" />                
                     </form>
                 </div>
             </div>

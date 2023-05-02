@@ -6,6 +6,17 @@ export const generarID = () =>{
     return random + fecha;
 }
 
+export const formatearFecha = fecha =>{
+    const fechaNueva = new Date(fecha);
+    const opciones = {
+        year: 'numeric',
+        month: 'long',
+        day: '2-digit',
+    }
+
+    return fechaNueva.toLocaleDateString('es-Es', opciones);
+}
+
 export const alerta = (tipoAlerta, titulo,mensaje) =>{
     Swal.fire({
         icon: tipoAlerta,
