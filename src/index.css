@@ -36,15 +36,15 @@ html {
     display: none;
 }
 .contenedor{
-    width: 70%;
-    max-width: 90%;
+    width: 90%;
+    max-width: 80rem;
     margin: 0 auto;
 }
 
-.sombra{ 
-    -webkit-box-shadow: 3px 3px 21px -5px rgba(0,0,0,0.69);
-    -moz-box-shadow: 3px 3px 21px -5px rgba(0,0,0,0.69);
-    box-shadow: 3px 3px 21px -5px rgba(0,0,0,0.69);
+.sombra{
+    -webkit-box-shadow: 0px 17px 18px -10px rgba(0,0,0,0.69);
+-moz-box-shadow: 0px 17px 18px -10px rgba(0,0,0,0.69);
+box-shadow: 0px 17px 18px -10px rgba(0,0,0,0.69);
 }
 
 .bg{
@@ -64,6 +64,7 @@ html {
     right: 0;
     background-color: rgba(0, 0, 0, .52);
 }
+
 .fondo_2{
     position: absolute;
     top: 0;
@@ -114,6 +115,7 @@ html {
 .nuevoPresupuesto  {
     color: var(--primario) !important;
 }
+
 .formulario {    
     width: 95%;
     margin: 0 auto;
@@ -263,13 +265,13 @@ html {
 .nuevo__gasto{
     position: fixed;
     bottom: 3rem;
-    right: 1.2rem;
+    right: 0rem;
 }
 
 @media (min-width: 768px){
     .nuevo__gasto{
         bottom: 5rem;
-        right: 3rem;
+        right: 1rem;
     }
 }
 
@@ -438,17 +440,19 @@ body .modal {
     }
 }
 
-.contenedor_gastos{
+.contenedor_gastos{    
    padding: 2rem;
-   border-radius: 2rem;
    margin-top: 2.5rem;
-   height: 32rem;
+   height: 35rem;
+   background-color: rgba(200, 250, 100, .2);
+   border-radius: 1rem;
 }
 
 .gasto{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(2,1fr);
+    width: 100%;
 }
 
 .categoria__gasto{    
@@ -526,7 +530,7 @@ body .modal {
 
 @media (min-width: 768px){
     .contenedor_gastos{
-        margin: 0 auto 3rem auto;
+        margin: 0 auto;
         height: auto;
     }
     
@@ -565,3 +569,39 @@ body .modal {
         gap: 3rem;
     }
 }
+/*** SWIPE LIST OVERRIDES **/
+ 
+    .swipe-action__leading {
+        background-color: var(--primario);
+        color: var(--blanco);
+        margin-bottom: 0;    
+        margin-top: 2.5rem;
+        border-radius: 1rem;
+    }
+
+    .swipe-action__trailing {
+        background-color: var(--rojo);    
+        color: var(--blanco);
+        margin-top: 2.5rem;
+        border-radius: 1rem;
+    }
+
+    .swipeable-list .swipe-action {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.4rem;
+        text-align: right;
+        gap: 1rem;
+    }
+
+    .swipeable-list-item__content{
+        display: block;
+    }
+
+    @media (min-width: 768px){
+        .swipe-action__leading, .swipe-action__trailing {
+           
+            margin-top: 0;
+        }
+    }

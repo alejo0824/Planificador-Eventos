@@ -37,6 +37,7 @@ function App() {
   return (
     <div className={modal ? 'fijar' : ''}>
       <Header
+        almacenarGastos = {almacenarGastos}
         presupuesto = {presupuesto}
         setPresupuesto = {setPresupuesto}
         presupuestoValido = {presupuestoValido}

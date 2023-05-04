@@ -25,3 +25,13 @@ export const alerta = (tipoAlerta, titulo,mensaje) =>{
         timer: 2500           
     })
 }
+
+//Método para formatear el presupuesto a moneda
+export const formatearCantidad = (cantidad) =>{
+        
+    return Number(cantidad).toLocaleString('en-US',{
+        style:'currency',
+        currency:'USD'
+    })
+}
+

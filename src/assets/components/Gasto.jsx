@@ -1,4 +1,5 @@
-import {formatearFecha} from '../../helpers'
+import{ LeadingActions,SwipeableList,SwipeableListItem,SwipeAction,TrailingActions} from 'react-swipeable-list'
+import {formatearFecha,formatearCantidad} from '../../helpers'
 //Imágenes
 import iconoBanquete from '../../img/banquete.svg'
 import iconoBelleza from '../../img/belleza.svg'
@@ -13,6 +14,7 @@ import iconoNovia from '../../img/novia.svg'
 import iconoNovio from '../../img/novio.svg'
 import iconoTransporte from '../../img/transporte.svg'
 import iconoOtros from '../../img/otros.svg'
+import 'react-swipeable-list/dist/styles.css';
 
 const diccionarioIconos ={
 
@@ -34,37 +36,60 @@ const diccionarioIconos ={
 const Gasto = ({gasto}) => {
 
     const{categoria, nombre, cantidad, id, fecha} = gasto;
+
+    const leadingActions= () =>(
+      <LeadingActions>
+        <SwipeAction onClick={ () => console.log('Editar')}>
+          Editar
+        </SwipeAction>
+      </LeadingActions>      
+    )
+  
+    const trailingActions= () =>(
+      <TrailingActions>
+        <SwipeAction onClick={ () => console.log('Eliminar')}>
+          Eliminar
+        </SwipeAction>
+      </TrailingActions>
+    )
      
     return (
-        <div className="contenedor_gastos sombra">
-            <div className="gasto">
-                <div className="categoria__gasto">
-                    <img src={diccionarioIconos[categoria]} alt="Icono Gasto" />
-                    <p>{categoria}</p>
-                </div>
+      <SwipeableList className='sombra'>
+        <SwipeableListItem
+          leadingActions={leadingActions()}
+          trailingActions={trailingActions()}
+        >
+          <div className="contenedor_gastos ">
+              <div className="gasto">
+                  <div className="categoria__gasto">
+                      <img src={diccionarioIconos[categoria]} alt="Icono Gasto" />
+                      <p>{categoria}</p>
+                  </div>
 
-                <div className="informacion_gasto">
-                    <p>
-                        Gasto: {''}
-                        <span>{nombre}</span>
-                    </p>
+                  <div className="informacion_gasto">
+                      <p>
+                          Gasto: {''}
+                          <span>{(nombre)}</span>
+                      </p>
 
-                    <p>
-                        Añadido el: {''}
-                        <span>{formatearFecha(fecha)}</span>
-                    </p>
-                </div>
+                      <p>
+                          Añadido el: {''}
+                          <span>{formatearFecha(fecha)}</span>
+                      </p>
+                  </div>
 
-                <div className="cantidad__gasto">
-                    <p>${cantidad}</p>
-                </div>
+                  <div className="cantidad__gasto">
+                      <p>{formatearCantidad(cantidad)}</p>
+                  </div>
 
-                <div className="opciones__gasto">
-                    <button className='editar'>Editar</button>
-                    <button className='eliminar'>Eliminar</button>
-                </div>
-            </div>
-        </div>
+                  <div className="opciones__gasto">
+                      <button className='editar'>Editar</button>
+                      <button className='eliminar'>Eliminar</button>
+                  </div>
+              </div>
+          </div>
+        </SwipeableListItem>
+      </SwipeableList>
     )
 }
 
