@@ -6,7 +6,7 @@ import Modal from './assets/components/Modal';
 import ListadoGastos from './assets/components/ListadoGastos';
 
 function App() {
-  const [presupuesto,setPresupuesto] = useState('');
+  const [presupuesto,setPresupuesto] = useState(Number(localStorage.getItem('presupuesto')) ?? '');
   const [presupuestoValido, setPresupuestoValido] = useState(false); //Dejar en False
 
   /*Hooks para activar Ventana del nuevo formulario para agregar gasto al dar clic en el "+"*/
@@ -14,7 +14,7 @@ function App() {
   const[animarModal, setAnimarModal] = useState(false)
 
   //Hook para Almecenar todos los gastos
-  const [almacenarGastos, setalmacenarGastos] = useState([]);
+  const [almacenarGastos, setalmacenarGastos] = useState(localStorage.getItem('almacenarGastos') ? JSON.parse(localStorage.getItem('almacenarGastos')) : []);
 
   //Hook para ditar los gastos
   const [editarGasto, setEditarGasto] = useState({});
@@ -28,7 +28,26 @@ function App() {
       }, 500);
     }
   },[editarGasto])
+
  
+  useEffect(()=>{
+    localStorage.setItem('presupuesto', presupuesto ?? 0)
+  },[presupuesto])
+
+
+  useEffect(()=>{
+    const presupuestoLS = Number(localStorage.getItem('presupuesto')) ?? ' '
+
+    if(presupuestoLS > 0){
+      setPresupuestoValido(true)
+    }
+  },[])
+
+  useEffect(() => {
+    localStorage.setItem('almacenarGastos',JSON.stringify(almacenarGastos) ?? [])
+  },[almacenarGastos])
+
+
   //Función cunado se oprime el "+" para crear un gasto
   const handleAgregarGasto = () => {
     setModal(true)
