@@ -1,17 +1,31 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import CerrarBTN from '../../img/close.svg'
 import { alerta } from '../../helpers';
 
-const Modal = ({setModal,animarModal,setAnimarModal,almacenarGasto}) => {
+const Modal = ({setModal, animarModal, setAnimarModal, almacenarGasto, editarGasto, setEditarGasto}) => {
 
     /* Nombre de los campos del formulario */
     const [nombre,setNombre] = useState('');
-    const [cantidad,SetCantidad] = useState('');
+    const [cantidad,setCantidad] = useState('');
     const [categoria,setCategoria] = useState('');
+    const [id, setId] = useState('');
+    const [fecha, setFecha] = useState('')
+
+    //Hook que se ejecuta una vez 
+    useEffect(() => {
+        if (Object.keys(editarGasto).length > 0) {
+            setNombre(editarGasto.nombre)
+            setCantidad(editarGasto.cantidad)
+            setCategoria(editarGasto.categoria)
+            setId(editarGasto.id)
+            setFecha(editarGasto.fecha)
+        }
+    },[])
 
     const ocultarModal = () => {
         setAnimarModal(false)
         setTimeout(() => {            
+            setEditarGasto({})
             setModal(false)
         }, 500);
     }
@@ -28,7 +42,7 @@ const Modal = ({setModal,animarModal,setAnimarModal,almacenarGasto}) => {
             alerta('error','Error...','La canidad no puede ser menor a 0')
             return
         }
-        almacenarGasto({nombre,cantidad,categoria})
+        almacenarGasto({nombre,cantidad,categoria,id,fecha})
     }
 
     return (
@@ -45,7 +59,7 @@ const Modal = ({setModal,animarModal,setAnimarModal,almacenarGasto}) => {
                 className={`formulario ${animarModal ? "animar" : "cerrar"}`}
                 onSubmit={handleSubmit}
             >
-                <legend>Nuevo Gasto</legend>
+                <legend>{editarGasto.id ? 'Editar Gasto':'Nuevo Gasto'}</legend>
 
                 <div className="campo">
                     <label htmlFor="nombre">Nombre del gasto</label>
@@ -65,7 +79,7 @@ const Modal = ({setModal,animarModal,setAnimarModal,almacenarGasto}) => {
                         id='cantidad'
                         placeholder='Introduce la cantidad del gasto'
                         value={cantidad}
-                        onChange={(e) => SetCantidad(Number(e.target.value))}
+                        onChange={(e) => setCantidad(Number(e.target.value))}
                     />
                 </div>
 
@@ -93,7 +107,7 @@ const Modal = ({setModal,animarModal,setAnimarModal,almacenarGasto}) => {
                     </select>
                 </div>
 
-                <input type="submit" value="Añadir Gasto"/>
+                <input type="submit" value={editarGasto.id ? 'Guardar Cambios':'Nuevo Gasto'}/>
             </form>
         </div>
     )

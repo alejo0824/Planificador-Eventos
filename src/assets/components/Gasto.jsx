@@ -1,5 +1,6 @@
 import{ LeadingActions,SwipeableList,SwipeableListItem,SwipeAction,TrailingActions} from 'react-swipeable-list'
 import {formatearFecha,formatearCantidad} from '../../helpers'
+import Swal from 'sweetalert2';
 //Imágenes
 import iconoBanquete from '../../img/banquete.svg'
 import iconoBelleza from '../../img/belleza.svg'
@@ -33,13 +34,13 @@ const diccionarioIconos ={
     otros: iconoOtros,
 }
 
-const Gasto = ({gasto}) => {
+const Gasto = ({gasto, setEditarGasto, eliminarGasto}) => {
 
     const{categoria, nombre, cantidad, id, fecha} = gasto;
 
     const leadingActions= () =>(
       <LeadingActions>
-        <SwipeAction onClick={ () => console.log('Editar')}>
+        <SwipeAction onClick={ () => setEditarGasto(gasto)}>
           Editar
         </SwipeAction>
       </LeadingActions>      
@@ -47,11 +48,32 @@ const Gasto = ({gasto}) => {
   
     const trailingActions= () =>(
       <TrailingActions>
-        <SwipeAction onClick={ () => console.log('Eliminar')}>
+        <SwipeAction onClick={ () => handlerEliminar()}>
           Eliminar
         </SwipeAction>
       </TrailingActions>
     )
+
+    const  handlerEliminar = () => {
+    
+      Swal.fire({
+        title: '¿Estas seguro de Eliminar el gasto ' + gasto.nombre +' ?',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Eliminado Correctamente', '', 'success')
+          eliminarGasto(gasto.id)
+          console.log("Eliminado");
+        } else if (result.isDenied) {
+          Swal.fire('Información guardada', '', 'info')
+          return
+        }
+      })
+
+    }
      
     return (
       <SwipeableList className='sombra'>
@@ -83,8 +105,8 @@ const Gasto = ({gasto}) => {
                   </div>
 
                   <div className="opciones__gasto">
-                      <button className='editar'>Editar</button>
-                      <button className='eliminar'>Eliminar</button>
+                      <button className='editar' onClick={ () =>setEditarGasto(gasto)}>Editar</button>
+                      <button className='eliminar' onClick={() => handlerEliminar()}>Eliminar</button>
                   </div>
               </div>
           </div>

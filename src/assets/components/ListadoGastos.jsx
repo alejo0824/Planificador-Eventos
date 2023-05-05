@@ -2,7 +2,7 @@ import Gasto from "./Gasto"
 import arrowLeft from "../../img/left-arrow.svg"
 import arrowRigth from "../../img/right-arrow.svg"
 
-const ListadoGastos = ({almacenarGastos}) => {
+const ListadoGastos = ({almacenarGastos, setEditarGasto, eliminarGasto}) => {
   return (
     <div className="listado-gastos contenedor">
         <h2>{almacenarGastos.length ? 'Gastos' : 'Todavía no hay gastos'}</h2>
@@ -21,6 +21,8 @@ const ListadoGastos = ({almacenarGastos}) => {
                 <Gasto
                     key = {gasto.id}
                     gasto = {gasto}
+                    setEditarGasto = {setEditarGasto}
+                    eliminarGasto = {eliminarGasto}
                 />
             ))
         }     
