@@ -219,32 +219,13 @@ box-shadow: 0px 17px 18px -10px rgba(0,0,0,0.69);
     border-bottom: 2px solid var(--verde);
 }
 
-.swal2-popup{
-    width: 50rem;
-}
-.swal2-html-container{
-    font-size: 1.8rem;
-}
-.swal2-title{
-    font-size: 2.4rem;
-}
-
-.swal2-styled.swal2-confirm{
-    background-color: var(--verde);    
-}
-
-
-.swal2-styled.swal2-confirm ,.swal2-styled.swal2-deny ,.swal2-styled.swal2-cancel{
-    font-size: 1.6rem;
-}
-
 .fondo__controlPresupuesto{
     background-image: url(./img/bottom.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     position: relative;
-    height: 80vh;
+    height: 90vh;
 }
 
 @media (min-width: 768px){
@@ -255,8 +236,9 @@ box-shadow: 0px 17px 18px -10px rgba(0,0,0,0.69);
 
 .contenedor__controPresupuesto{    
     background-color: #fffc;
-    transform: translateY(8rem);
+    transform: translateY(4rem);
     padding: 3rem;
+    border-radius: 1rem;
 }
 .contenedor__controPresupuesto h2{
     margin: 1rem auto;
@@ -296,6 +278,10 @@ box-shadow: 0px 17px 18px -10px rgba(0,0,0,0.69);
     
 }
 
+.grafica{
+    width: 55%;
+}
+
 @media (min-width: 768px){
     .contenido__controlPresupuesto{
         flex-direction: row;
@@ -306,8 +292,15 @@ box-shadow: 0px 17px 18px -10px rgba(0,0,0,0.69);
 
     .grafica__controlPresupuesto{
         width: 50%;
+    }  
+
+    .grafica{
+        width:75%;
     }
-    
+}
+
+.CircularProgressbar .CircularProgressbar-text{
+    font-size: 1rem;
 }
 
 /* BORRAR Al agregar gráfica */
@@ -575,6 +568,9 @@ body .modal {
     }
 }
 /*** SWIPE LIST OVERRIDES **/
+/*** SWIPE LIST OVERRIDES **/
+ 
+/*** SWIPE LIST OVERRIDES **/ 
  
     .swipe-action__leading {
         background-color: var(--primario);
@@ -608,5 +604,38 @@ body .modal {
         .swipe-action__leading, .swipe-action__trailing {
            
             margin-top: 0;
+        }
+    }
+
+    /* sweetalert2 */
+    .swal2-popup{
+        width: 50rem;
+    }
+    .swal2-html-container{
+        font-size: 1.8rem;
+    }
+    .swal2-title{
+        font-size: 2.4rem;
+    }
+    
+    .swal2-styled.swal2-confirm{
+        background-color: var(--verde);    
+    }
+    
+    
+    .swal2-styled.swal2-confirm ,.swal2-styled.swal2-deny ,.swal2-styled.swal2-cancel{
+        font-size: 1.6rem;
+    }
+
+
+    .CircularProgressbar{
+        display: block;
+        margin: 0 auto;
+        width: 67%;
+    }
+
+    @media (min-width: 768px){
+        .CircularProgressbar{
+            width: 80%;
         }
     }

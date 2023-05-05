@@ -54,8 +54,7 @@ const Gasto = ({gasto, setEditarGasto, eliminarGasto}) => {
       </TrailingActions>
     )
 
-    const  handlerEliminar = () => {
-    
+    const  handlerEliminar = () => {    
       Swal.fire({
         title: '¿Estas seguro de Eliminar el gasto ' + gasto.nombre +' ?',
         showDenyButton: true,
@@ -68,11 +67,10 @@ const Gasto = ({gasto, setEditarGasto, eliminarGasto}) => {
           eliminarGasto(gasto.id)
           console.log("Eliminado");
         } else if (result.isDenied) {
-          Swal.fire('Información guardada', '', 'info')
+          Swal.fire('Todos tus datos están a salvo', '', 'info')
           return
         }
       })
-
     }
      
     return (
